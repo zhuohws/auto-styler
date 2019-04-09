@@ -1,0 +1,56 @@
+是什么：
+什么是自适应布局：同一张网页自动适应不同大小的屏幕，根据屏幕宽度，自动调整网页内容大小。
+什么是响应式布局：可以自动识别屏幕宽度、并做出相应调整的网页设计，布局和展示的内容可能会有所变动。
+区别：如果网页内容过多，整体会显得拥挤。所以响应式布局是自适应布局的改进，布局和展示的内容可能会有所变动。
+例如：网页在屏显300~600~900~1200四个阶段的布局与内容（https://mediaqueri.es/）：
+
+​点击并拖拽以移动
+
+为什么：
+屏幕显示器的分辨率越来越多样化，在pc端和手机端需要做样式上的平衡，如果每个屏显都需要一套独立的网页或者样式，会加大工作量
+单纯使用meta-viewport虽然可以解决部分问题，但是单纯的进行缩放，达到的平衡点，用户体验不佳
+例如：携程有pc版和手机版，在pc端拟化手机效果：
+
+
+
+segmentfault网站的响应式布局：
+
+
+如果想要更好的用户体验，建议使用响应式布局
+
+怎么做：
+允许网页宽度自动调整
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+// viewport是网页默认的宽度和高度
+// 网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1）为1.0
+// 即网页初始大小占屏幕面积的100%
+兼容：https://code.google.com/archive/p/css3-mediaqueries-js/
+尽量少使用绝对宽度：使用百分比进行布局
+相对大小的字体：字体也不能使用绝对大小（px），而只能使用相对大小（em）或者高清方案（rem）,rem不局限于字体大小，前面的宽度width也可以使用，代替百分比
+流动布局（fluid grid）：各个区块的位置都是浮动的，不是固定不变的
+选择加载CSS：
+　　<link rel="stylesheet" type="text/css" media="screen and (max-device-width: 400px)"
+　　href="tinyScreen.css" />
+    或者：
+    @import  url("tinyScreen.css") screen and (max-device-width: 400px);
+CSS的@media规则（媒体查询）
+@media  screen and (max-device-width: 400px) {
+　　　　.column {
+　　　　　　float: none;
+　　　　　　width:auto;
+　　　　}
+
+　　　　#sidebar {
+　　　　　　display:none;    
+　　　　}
+
+　　}
+图片的自适应（fluid image）
+img { max-width: 100%;}
+参考：Bootstrap的栅格布局：
+栅格布局：
+
+
+响应式类名：
+
+
