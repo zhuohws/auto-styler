@@ -1,0 +1,245 @@
+/* 既定类名：浮动-字体对齐 */
+.float-right{
+    float: right;
+}
+.float-left{
+    float: left;
+}
+.clearfix{
+    clear: both;
+}
+.align-left{
+    text-align: left;
+}
+.align-right{
+    text-align: right;
+}
+.align-center{
+    text-align: center;
+}
+.align-justify{
+    text-align: justify;
+}
+/* 其他样式 */
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: #333;
+}
+.container{
+    min-height: 100vh;
+}
+/* 头部、底部 */
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.4);
+    margin-bottom: 2px;
+    z-index: 2;
+}
+#logo{
+    z-index: 2;
+    line-height: 60px;
+    text-align: center;
+    padding: 0 5px;
+    height: 60px;
+    overflow: hidden;
+    box-sizing: border-box;
+    text-shadow: 3px 5px 5px #888;
+}
+.footer{
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.4);
+}
+.navbar{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+.navi{
+    height: 100%;
+    cursor: pointer;
+    padding: 0 1.2em;
+    text-align: center;
+    line-height: 60px;
+}
+.slide-toggle{
+    height: 0 !important;
+    transition: all .4s linear;
+}
+#nav-mask{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    background-color: rgba(255,255,255,.4);
+    display: none;
+}
+#bg-avtive{
+    position: absolute;
+    height: 60px;
+    /* width: 100%; */
+    z-index: -1;
+}
+.navi-title{
+    height: 60px;
+    line-height: 60px;
+}
+.nav-btn{
+    display: none;
+}
+/* 内容 */
+.content{
+    float: left;
+    min-height: calc(100vh - 120px);
+    width: 100%;
+    box-sizing: border-box;
+}
+.main-left{
+    background: #f5f5f5;
+    width: 100%;
+    float: left;
+}
+.main-right{
+    width: 350px;
+    float: left;
+    height: 100%;
+    box-sizing: border-box;
+    margin-left: -350px;
+    margin-top: 20px;
+}
+.artice-list{
+    margin-right: 360px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.artice{
+    padding: 10px;
+}
+.artice > h3{
+    font-size: 22px;
+    color: #527ED1;
+}
+.artice-avatar{
+    margin: 6px;
+}
+.artice-discribe{
+    margin: 6px;
+    min-height: 120px;
+    font-size: 14px;
+    word-break: break-all;
+    text-indent: 2em;
+}
+.read-all{
+    color: #527ED1;
+    text-shadow: 2px 1px 1px #0f0f0f33;
+    font-weight: 900;
+    font-size: 16px;
+}
+.tag{
+    color: #527ED1;
+    font-size: 14px;
+}
+/* 媒体查询 */
+@media all and (min-width: 1200px){
+    .header{
+        padding: 0 260px;
+    }
+}
+@media all and (max-width: 1200px){
+    .header{
+        padding: 0 160px;
+    }
+}
+@media all and (max-width: 992px){
+    .header{
+        padding: 0 100px;
+    }
+}
+@media all and (max-width: 768px){
+    .artice-list{
+        margin-right: 0;
+        padding-right: 0;
+    }
+    .main-right{
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+    }
+    .navi-describe{
+        display: none;
+    }
+    .header{
+        padding: 0 20px;
+        height: 60px;
+    }
+    #nav-mask{
+        display: none;
+    }
+}
+@media all and (max-width: 550px){
+    .header{
+        flex-direction: column;
+        height: auto;
+        padding: 0;
+    }
+    #nav-mask{
+        display: block;
+    }
+    .nav-btn{
+        display: block;
+        position: absolute;
+        z-index: 3;
+        cursor: pointer;
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 7px 0;
+        box-sizing: border-box;
+        box-shadow: 1px 1px 4px rgba(0,0,0,.2);
+    }
+    .line{
+        width: 26px;
+        height: 4px;
+        border-radius: 2px;
+        background-color: #444;
+        transition: all .25s linear;
+    }
+    .close>.line:nth-of-type(1){
+        transform: translateY(9px) translateX(1px) rotate(45deg);
+    }
+    .close>.line:nth-of-type(2){
+        background-color: transparent;
+    }
+    .close>.line:nth-of-type(3){
+        transform: translateY(-8px) translateX(1px) rotate(-45deg);
+    }
+    .navbar{
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+    }
+    .navi{
+        width: 100%;
+    }
+}
